@@ -32,7 +32,7 @@
         {
             "label": "run arcadeSystem",
             "type": "shell",
-            "command": "cd ../ArcadeSystem/source; ./arcadeSystem",
+            "command": "cd source; ./arcadeSystem",
             "group": {
                 "kind": "build",
                 "isDefault": true
