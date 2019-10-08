@@ -42,10 +42,6 @@
             "label": "recompile gui",
             "type": "shell",
             "command": "make -C GUI_files/cpp_files",
-<<<<<<< HEAD
-=======
-            
->>>>>>> c13664e634774a691cd91426de5587f8aa811f3e
             "group": {
                 "kind": "build",
                 "isDefault": true
