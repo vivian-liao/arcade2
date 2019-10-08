@@ -42,7 +42,6 @@
             "label": "recompile gui",
             "type": "shell",
             "command": "make -C GUI_files/cpp_files",
-            "dependsOn": "clean gui",
             "group": {
                 "kind": "build",
                 "isDefault": true
