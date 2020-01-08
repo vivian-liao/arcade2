@@ -69,3 +69,25 @@ void Map::config(std::string path, point tlc, std::vector<std::vector<int> > squ
         }
     }
 }
+
+void Map::clear()
+{
+    for(int row = 0; row < squares.size(); row++)
+    {
+        for(int col = 0; col < squares[row].size(); col++)
+        {
+            squares[row][col]->setState(false);
+        }
+    }
+}
+
+Map::~Map()
+{
+    for(int row = 0; row < squares.size(); row++)
+    {
+        for(int col = 0; col < squares[row].size(); col++)
+        {
+            delete squares[row][col];
+        }
+    }
+}
