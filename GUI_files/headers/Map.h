@@ -15,6 +15,9 @@ class Map
     // constructor
     Map(int sideSize_in, int xDim_in, int yDim_in, SDL_Renderer* ren_in);
 
+    // Destructor
+    ~Map();
+    
     // used initialize tiles on the map
     void config(std::string path, point tlc, std::vector<std::vector<int> > squares_in, bool canMove);
     
@@ -24,6 +27,8 @@ class Map
     int getSideSize(){return sideSize;}
     SDL_Renderer* getRenderer() {return ren;}
     std::vector<std::vector<Tile*> >& getTiles() {return squares;}
+
+    void clear();
 
     private:
     int xDim;
