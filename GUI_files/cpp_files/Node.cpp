@@ -99,7 +99,7 @@ ArcadeTexture* Node::createSimpleText(SDL_Renderer* renderer_in, std::string tex
 {
 	ArcadeTexture* newSimpleTexture = new ArcadeTexture();
 	newSimpleTexture->setRenderer(renderer_in);
-	SDL_Color textColor = { r, g, b };
+	SDL_Color textColor = { static_cast<Uint8>(r), static_cast<Uint8>(g), static_cast<Uint8>(b) };
 	newSimpleTexture->loadFromRenderedText(texturePath_in, size_in, text_in, textColor);
 	newSimpleTexture->setSize(WIDTH_ORIGINAL, HEIGHT_ORIGINAL);
 	return newSimpleTexture;
