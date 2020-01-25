@@ -28,7 +28,13 @@ $(OBJ_NAME): $(OBJS) ../GUI_files/cpp_files/*.o
 	$(CXX) $^ $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $@ 
 
 # 3 all the .o files rely on the .cpp files
-%.o: %.cpp
-	$(CXX) -std=c++11 $(INCLUDE_PATHS) $(COMPILER_FLAGS) -c $< 
+# make typically does this implicitly but we
+# only want each .o to rely only on its .cpp
+DEPS := $(OBJS:.o=.d)
+
+-include $(DEPS)
+
+$(OBJS): %.o: %.cpp
+	$(CXX) -MMD -c -std=c++11 $(INCLUDE_PATHS) $(COMPILER_FLAGS) $< -o $@
 clean:
 	rm *.o $(OBJ_NAME)
