@@ -29,7 +29,7 @@ DEPS := $(OBJS:.o=.d)
 # should each be compiled separately and rely only on the according .o file
 # -MMD is a compiler flag that generates rules for make for dependent include files
 $(OBJS): %.o: %.cpp
-	$(CXX) -MMD -c $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $< -o $@
+	$(CXX) -MMD -c -std=c++11 $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $< -o $@
 
 clean:
 	rm *.o $(OBJ_NAME)
